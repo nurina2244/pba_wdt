@@ -1,0 +1,238 @@
+<!--NURINA NAIFAH BINTI MAZELAN SIDUA , 20DIT25F1098-->
+<!--MUHAMMAD FIRDAUS IRFAN BIN ALYIAS , 20DIT25F1045-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery Mobile App</title>
+  
+  <!-- jQuery Mobile CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jQuery & jQuery Mobile JS -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Fail CSS & JS Anda -->
+  <link rel="stylesheet" href="CSS/style.css"/>
+  <script src="JS/script.js"></script>
+</head>
+
+<body>
+  <!-- HOME PAGE -->
+    <div data-role="page" id="home">
+    <!-- HEADER WITH NAVIGATION -->
+    <div data-role="header" data-theme="b">
+      <h1>EXPLORE SARAWAK</h1>
+      <!-- NAVBAR JQUERY MOBILE -->
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#home" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
+          <li><a href="#packages" data-transition="slide" data-icon="grid">Tour Packages</a></li>
+          <li><a href="#booking" data-transition="slide" data-icon="edit">Booking</a></li>
+          <li><a href="#contactModal" data-bs-toggle="modal" data-bs-target="#contactModal" data-icon="mail">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="hero-image-container">
+      <img src="img/sarawak.jpg" alt="Sarawak Tourism Banner" class="img-fluid hero-banner">
+    </div>
+
+    <div data-role="content" class="text-center p-3">
+      <h2>Sarawak Tour Packages</h2>
+      <p>Discover the natural beauty and rich cultural heritage of Sarawak.</p>
+      
+      <a href="#packages" data-transition="slide" class="ui-btn ui-btn-b ui-corner-all">Explore Tour Packages</a>
+      <a href="#booking" data-transition="flip" class="ui-btn ui-corner-all">Book Now</a>
+
+      <button type="button" class="btn btn-outline-primary mt-3 w-100" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</button>
+    </div>
+
+    <!--Footer-->
+    <div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
+        <h4 class="footer-text">&copy; 2026 Explore Sarawak</h4>
+    </div>
+  </div>
+
+  <!-- PAGE 2: TOUR PACKAGES PAGE -->
+  <div data-role="page" id="packages">
+    <div data-role="header" data-theme="b">
+      <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-notext">Home</a>
+      <h1>Tour Packages</h1>
+    </div>
+    
+    <div data-role="content" class="container">
+      
+      <!-- Package 1 -->
+      <div class="card overflow-hidden mb-3">
+        <img src="img/kch cultural.jpg" class="card-img-top tour-card-img" alt="Kuching Culture">
+        <div class="card-body">
+          <h5 class="card-title">Kuching Culture & Heritage</h5>
+          <p class="card-text">Visit the Sarawak Cultural Village.</p>
+          <p class="card-text" style="text-align: right;"> RM350</p>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Package 2 -->
+      <div class="card overflow-hidden mb-3">
+        <img src="img/mulu.jpg" class="card-img-top tour-card-img" alt="Mulu Caves">
+        <div class="card-body">
+          <h5 class="card-title">Mulu Caves Adventure</h5>
+          <p class="card-text">An adventurous journey into Gunung Mulu National Park and Deer Cave.</p>
+          <p class="card-text" style="text-align: right;"> RM310</p>
+          <div class="d-flex gap-2 mb-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">View Details</button>
+          </div>
+        </div>
+      </div>
+      <a href="#booking" data-transition="slidefade" class="ui-btn ui-btn-b">Proceed to Booking Form</a>
+    </div>
+
+    <!--Footer-->
+    <div data-role="footer" data-theme="b" data-tap-toggle="false">
+        <h4 class="footer-text">&copy; 2026 Explore Sarawak</h4>
+    </div>
+  </div>
+
+  <!-- PAGE 3: BOOKING FORM PAGE -->
+  <div data-role="page" id="booking">
+    <div data-role="header" data-theme="b">
+      <a href="#home" data-transition="slide" data-direction="reverse" class="ui-btn ui-icon-home ui-btn-icon-notext">Home</a>
+      <h1>Booking Form</h1>
+    </div>
+    
+    <div data-role="content" class="container">
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <label for="bookName">Full Name:</label>
+        <input type="text" id="bookName" placeholder="Enter your full name" required>
+
+        <label for="bookPhone">Phone Number:</label>
+        <input type="tel" id="bookPhone" placeholder="01X-XXXXXXX" required>
+
+        <label for="bookEmail">Email Address:</label>
+        <input type="email" id="bookEmail" placeholder="example@email.com" required>
+
+        <label for="travelDate">Travel Date:</label>
+        <input type="date" id="travelDate" required>
+
+        <label for="participants">Number of Participants:</label>
+        <input type="number" id="participants" min="1" value="1" required>
+
+        <label for="packageSelect">Select Tour Package:</label>
+        <select id="packageSelect">
+          <option value="Kuching Culture & Heritage">Kuching Culture & Heritage</option>
+          <option value="Mulu Caves Adventure">Mulu Caves Adventure</option>
+        </select>
+
+        <button type="submit" class="btn btn-success mt-3 w-100">Submit Booking</button>
+      </form>
+    </div>
+
+    <!--Footer-->
+    <div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
+        <h4 class="footer-text">&copy; 2026 Explore Sarawak</h4>
+    </div>
+  </div>
+
+  <!-- Modal Package 1 -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Kuching Culture & Heritage</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Name:</strong> Kuching Culture & Heritage</p>
+          <p><strong>Description:</strong> Explore the rich cultural heritage of Kuching.</p>
+          <p><strong>Type:</strong> Cultural Tour</p>
+          <p><strong>Category:</strong> Cultural & Historical</p>
+          <p><strong>Duration:</strong> 3 days</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Package 2 -->
+  <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel2">Mulu Caves Adventure</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Name:</strong> Mulu Caves Adventure</p>
+          <p><strong>Description:</strong> An adventurous journey into Gunung Mulu National Park and Deer Cave.</p>
+          <p><strong>Type:</strong> Adventure Tour</p>
+          <p><strong>Category:</strong> Nature & Wildlife</p>
+          <p><strong>Duration:</strong> 4 days</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="contactForm" onsubmit="return validateContactForm(event)">
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="contactName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="contactName" placeholder="Enter your full name">
+              <div id="nameError" class="error-msg">Please enter your name.</div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label">Email</label>
+              <input type="text" class="form-control" id="contactEmail" placeholder="example@email.com">
+              <div id="emailError" class="error-msg">Please enter a valid email address.</div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label">Message</label>
+              <textarea class="form-control" id="contactMessage" rows="3" placeholder="Write your message here..."></textarea>
+              <div id="messageError" class="error-msg">Please enter your message.</div>
+            </div>
+
+            <!-- Ethical Consent Checkbox -->
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="ethicalConsent">
+              <label class="form-check-label" for="ethicalConsent">
+                I consent to the collection, privacy terms, and responsible use of my submitted information.
+              </label>
+              <div id="consentError" class="error-msg">You must provide privacy consent before submitting the form.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

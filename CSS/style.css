@@ -1,0 +1,60 @@
+/* Custom Styling for Tour Package Booking System */
+
+.ui-page {
+  background-color: #f8f9fa !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Banner Styling */
+.hero-banner {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-bottom: 3px solid #0d6efd;
+}
+
+/* Tour Card Image Styling */
+.tour-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Card Styling for Packages */
+.card {
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+/* Validation Error Messages */
+.error-msg {
+  color: #dc3545;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: none;
+  margin-top: 5px;
+}
+
+/* Modal Header Styling */
+.modal-header {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* === TAMBAHAN DITAMBAH DI SINI: MENYELESAIKAN ISU MODAL TERBELAH === */
+.modal {
+  z-index: 1055 !important;
+}
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+.ui-mobile .ui-page {
+  position: relative;
+}
